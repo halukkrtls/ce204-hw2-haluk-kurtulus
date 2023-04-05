@@ -1,0 +1,198 @@
+class Person
+{
+  String title;
+  String givenName;
+  String middleName;
+  String familyName;
+  String name;
+  Date birthdate;
+  String gender;
+  String homeAddress;
+  String phone;
+}
+
+class Hospital
+{
+  1 <@>- * Department;
+  String name;
+  String address;
+  String phone;
+  * -- * Person;
+}
+
+class Department
+{
+1 <@>- * Staff;
+}
+
+class Patient
+{
+    isA Person;
+String id;
+  String name;
+  String gender;
+  Date birthDate;
+  Integer age;
+  Date accepted;
+  String sickness;
+  String prescriptions;
+  String allergies;
+  String specialReqs;
+}
+
+class Staff
+{
+    isA Person;
+Date joined;
+  String education;
+  
+  String certification;
+    String languages;
+}
+
+class OperationsStaff
+{
+    isA Staff;
+* -- * Patient;
+}
+
+class AdministrativeStaff
+{
+  isA Staff;
+}
+
+class TechnicalStaff
+{
+  isA Staff;
+}
+
+class Doctor
+{
+    isA OperationsStaff;
+String specialty;
+    String lecations;
+}
+
+class Nurse
+{
+  isA OperationsStaff;
+}
+
+class FrontDeskStaff
+{
+  isA AdministrativeStaff;
+}
+
+class Technician
+{
+  isA TechnicalStaff;
+}
+
+class Technologist
+{
+  isA TechnicalStaff;
+}
+
+class Surgeon
+{
+  isA Doctor;
+}
+
+class Receptionist
+{
+  isA FrontDeskStaff;
+}
+
+class SurgicalTechnologist
+{
+  isA Technologist;
+}
+
+//$?[End_of_model]$?
+
+namespace -;
+
+
+class Person
+{
+  position 51 30 166.25 194.359;
+}
+
+class Hospital
+{
+  position 418 29 127.703 92.3594;
+  position.association Hospital__Person 0,58 167,76;
+  position.association Department__Hospital 51,92 25,0;
+}
+
+class Department
+{
+  position 449 169 109 41.3594;
+  position.association Department__Staff 42,41 43,0;
+}
+
+class Patient
+{
+  position 30 314 161.438 211.359;
+}
+
+class Staff
+{
+  position 448 251 140.641 75.3594;
+}
+
+class OperationsStaff
+{
+  position 279 503 128.016 41.3594;
+  position.association OperationsStaff__Patient 0,13 162,173;
+}
+
+class AdministrativeStaff
+{
+  position 449 390 151.859 41.3594;
+}
+
+class TechnicalStaff
+{
+  position 742 488 116.25 41.3594;
+}
+
+class Doctor
+{
+  position 161 601 134.5 75.3594;
+}
+
+class Nurse
+{
+  position 358 626 109 41.3594;
+}
+
+class FrontDeskStaff
+{
+  position 517 530 123.609 41.3594;
+}
+
+class Technician
+{
+  position 677 607 109 41.3594;
+}
+
+class Technologist
+{
+  position 851 599 109 41.3594;
+}
+
+class Surgeon
+{
+  position 63 714 109 41.3594;
+}
+
+class Receptionist
+{
+  position 531 671 109 41.3594;
+}
+
+class SurgicalTechnologist
+{
+  position 819 691 160.047 41.3594;
+}

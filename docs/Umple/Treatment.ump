@@ -1,0 +1,111 @@
+class Hospital
+{
+  1 <@>- * Ward;
+  1 <@>- 1..* Team;
+  String name;
+  String address;
+  String phone;
+}
+
+class Team
+{
+  0..1 <@>- 0..* Doctor;
+  String name;
+}
+
+class Ward
+{
+  String name;
+  String patientsGender;
+  Integer capacity;
+}
+
+class Doctor
+{
+  String specialty;
+  String locations;
+  * -- * Patient;
+}
+
+class Patient
+{
+  String id;
+  String gender;
+  Integer age;
+  String accepted;
+  String sickness;
+  String prescriptions;
+  String allergies;
+  String specialReqs;
+  * -- 1 Team;
+  * -- 1 Ward;
+}
+
+class ConsultantDoctor
+{
+    isA Doctor;
+1 -- 0..1 Team;
+  1 -- * Patient;
+}
+
+class JuniorDoctor
+{
+  isA Doctor;
+}
+
+class Gender
+{
+}
+
+
+
+namespace -;
+
+
+class Hospital
+{
+  position 416 63 127.703 92.3594;
+  position.association Hospital__Team 0,10 25,0;
+  position.association Hospital__Ward 92,92 0,10;
+}
+
+class Team
+{
+  position 94 192 112.922 58.3594;
+  position.association Doctor__Team 65,58 1,0;
+}
+
+class Ward
+{
+  position 584 213 178.016 92.3594;
+}
+
+class Doctor
+{
+  position 138 434 134.656 75.3594;
+  position.association Doctor__Patient 136,39 0,106;
+}
+
+class Patient
+{
+  position 578 383 161.438 177.359;
+  position.association Patient__Team 0,25 114,45;
+  position.association Patient__Ward 95,0 93,62;
+}
+
+class ConsultantDoctor
+{
+  position 14 612 139.844 41.3594;
+  position.association ConsultantDoctor__Team 17,0 0,12;
+  position.association ConsultantDoctor__Patient 134,0 0,152;
+}
+
+class JuniorDoctor
+{
+  position 259 637 109 41.3594;
+}
+
+class Gender
+{
+  position 977 597 109 41.3594;
+}//$?[End_of_model]$?

@@ -1,0 +1,104 @@
+class Patient
+{
+  1 -- * eventExamination;
+  1 -- * Prescriptions;
+  1 -- * eventTreatment;
+}
+
+class Doctor
+{
+  * -- * Patient;
+  1 -- * eventExamination;
+  * -- * Prescriptions;
+  * -- * eventTreatment;
+}
+
+class eventExamination
+{
+}
+
+class Diagnosis
+{
+  * -- 1 Patient;
+  * -- * Doctor;
+  * -- * eventExamination;
+  * -- * Prescriptions;
+  * -- * eventTreatment;
+}
+
+class Prescriptions
+{
+  1 -- * eventTherapy;
+}
+
+class eventTreatment
+{
+}
+
+class eventTherapy
+{
+  isA eventTreatment;
+}
+
+class eventSurgery
+{
+  isA eventTreatment;
+}
+
+//$?[End_of_model]$?
+
+namespace -;
+
+
+class Patient
+{
+  position 213 67 109 41.3594;
+  position.association Patient__eventExamination 89,41 0,14;
+  position.association Patient__Prescriptions 36,28 30,0;
+  position.association Patient__eventTreatment 25,41 44,13;
+}
+
+class Doctor
+{
+  position 647 50 109 41.3594;
+  position.association Doctor__Patient 0,23 110,21;
+  position.association Doctor__eventExamination 27,41 144,3;
+  position.association Doctor__Prescriptions 74,41 110,2;
+  position.association Doctor__eventTreatment 100,37 113,0;
+}
+
+class eventExamination
+{
+  position 399 162 143.859 41.3594;
+}
+
+class Diagnosis
+{
+  position 406 250 109 41.3594;
+  position.association Diagnosis__Patient 0,11 53,21;
+  position.association Diagnosis__Doctor 110,0 57,41;
+  position.association Diagnosis__eventExamination 56,0 71,34;
+  position.association Diagnosis__Prescriptions 23,35 50,0;
+  position.association Diagnosis__eventTreatment 48,34 65,0;
+}
+
+class Prescriptions
+{
+  position 345 357 109 41.3594;
+  position.association Prescriptions__eventTherapy 48,25 19,0;
+}
+
+class eventTreatment
+{
+  position 461 449 129.438 41.3594;
+}
+
+class eventTherapy
+{
+  position 394 556 115.25 41.3594;
+}
+
+class eventSurgery
+{
+  position 564 553 114.094 41.3594;
+}
